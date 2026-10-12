@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>מסלול · מוקאפ חי</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="bar-grad"></div>
+<section class="hero"><div class="in">
+  <span class="mono" style="color:#9aa1ad">Use Case 04 · שיבוץ טכנאי שטח · מוקאפ חי</span>
+  <h1>מסלול</h1>
+  <p>הטכנאי הנכון עם החלק הנכון, והלקוח יודע מתי הוא מגיע. ארבעה מסכים שאפשר ללחוץ בהם, עם הנפח של הלקוח: 24 טכנאי אזור מרכז, כ־150 קריאות ביום. כל השמות, הכתובות והמספרים בדויים.</p>
+</div></section>
+
+<main class="wrap">
+  <div class="screens">
+    <a class="scard" href="dispatcher.html" style="--c:var(--pink)">
+      <span class="mono">מסך 1 · רינה, משבצת</span>
+      <h2>תכנון מחר</h2>
+      <p>לוח שיבוץ עם הצעה ונימוק לכל קריאה, גרירה בין טכנאים, ומפה. המערכת מציעה, המשבצת מאשרת.</p>
+      <span class="err">מצבים: שגיאת סנכרון Priority · אין קריאות · העברה לטכנאי בלי הסמכה</span>
+    </a>
+    <a class="scard" href="live.html" style="--c:var(--purple)">
+      <span class="mono">מסך 2 · רינה, במהלך היום</span>
+      <h2>היום בזמן אמת</h2>
+      <p>מפה של כל הטכנאים בשעה 10:40, ורשימת "דורש טיפול": מאחרים, ביקורים שנכשלו, טכנאי בלי קליטה.</p>
+      <span class="err">מצב: תקלה בשליחת וואטסאפ</span>
+    </a>
+    <a class="scard" href="technician.html" style="--c:var(--teal)">
+      <span class="mono">מסך 3 · יוסי, טכנאי</span>
+      <h2>המשימה הבאה בנייד</h2>
+      <p>אישור העמסה בבוקר, סטטוס בלחיצה, קוד כניסה רק אחרי "הגעתי", וסיבה לכל ביקור שנכשל. כולל תצוגת קבלן משנה.</p>
+      <span class="err">מצב: אין קליטה, עדכונים נשמרים בטלפון</span>
+    </a>
+    <a class="scard" href="customer.html" style="--c:var(--gold)">
+      <span class="mono">מסך 4 · הלקוח בבית</span>
+      <h2>הודעה עם זמן הגעה</h2>
+      <p>אישור "אני בבית" בערב, "בדרך" עם שעה, ועדכון רק בעיכוב של 15 דקות ומעלה.</p>
+      <span class="err">מצב: המספר לא רשום בוואטסאפ</span>
+    </a>
+  </div>
+
+  <h2 class="sec">רצף ההדגמה ללקוח (Happy Path)</h2>
+  <ol class="path">
+    <li><span><b>תכנון מחר:</b> בוחרים קריאה ורואים למה הוצעה לטכנאי. גוררים קריאת VRF לטכנאי בלי הסמכה ורואים שהמערכת מסרבת. משבצים קריאה מרשימת הממתינות ולוחצים "אשר את כל ההצעות".</span></li>
+    <li><span><b>הודעות ללקוח:</b> שלב 1, הלקוח עונה "אני בבית".</span></li>
+    <li><span><b>אפליקציית טכנאי:</b> במצב "לפני יציאה" חסר חלק אחד. מסמנים שהועמס, או לוחצים "חסר לי חלק". עוברים ל"במהלך היום", לוחצים "הגעתי" ורואים את קוד הכניסה.</span></li>
+    <li><span><b>אפליקציית טכנאי:</b> מסמנים "אין קליטה", לוחצים "הושלם", ואז מחזירים קליטה ורואים שהעדכון נשלח.</span></li>
+    <li><span><b>הודעות ללקוח:</b> שלבים 2–4, "בדרך", עיכוב קטן שלא נשלח, ועיכוב של 24 דקות שכן נשלח.</span></li>
+    <li><span><b>היום בזמן אמת:</b> הטכנאי המאחר, הביקורים שנכשלו והטכנאי בלי קליטה. לוחצים "שבץ ביקור חוזר".</span></li>
+  </ol>
+
+  <h2 class="sec">מה מדומה במוקאפ</h2>
+  <ul style="color:var(--ink-2);display:grid;gap:4px;padding-inline-start:18px;margin:0">
+    <li>ההצעה מחושבת בדפדפן בכלל פשוט (הטכנאי המוסמך שמגיע הכי מוקדם). במוצר: Google Route Optimization.</li>
+    <li>המפה מצוירת מקואורדינטות אמיתיות של הערים, בלי מפתח API. במוצר: Google Maps JavaScript API.</li>
+    <li>אין שרת: כל שינוי נשמר רק עד רענון הדף.</li>
+  </ul>
+</main>
+</body>
+</html>

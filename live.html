@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>מסלול · היום בזמן אמת</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="bar-grad"></div>
+<header class="topbar"><div class="in">
+  <a class="brand" href="index.html"><i></i>מסלול <small>קור־טק · מוקד</small></a>
+  <nav class="tabs" aria-label="מסכים">
+    <a href="dispatcher.html">תכנון מחר</a>
+    <a href="live.html" aria-current="page">היום בזמן אמת</a>
+    <a href="technician.html">אפליקציית טכנאי</a>
+    <a href="customer.html">הודעות ללקוח</a>
+  </nav>
+  <span class="spacer"></span>
+  <label class="demo" for="demo-state">הדגמת מצב
+    <select id="demo-state">
+      <option value="normal">רגיל</option>
+      <option value="wa">תקלה בשליחת וואטסאפ</option>
+    </select>
+  </label>
+  <span class="who"><b>ר</b>רינה לוי · משבצת ראשית</span>
+</div></header>
+
+<div id="banner"></div>
+<section class="kpis" id="kpis" aria-label="מצב היום"></section>
+
+<main class="live">
+  <section class="card" aria-labelledby="m-title">
+    <h2 id="m-title">טכנאים בשטח <small id="m-caption"></small></h2>
+    <div class="statuskey">
+      <span><i style="background:var(--teal)"></i>אצל לקוח</span>
+      <span><i style="background:var(--purple)"></i>בדרך</span>
+      <span><i style="background:var(--pink)"></i>מאחר</span>
+      <span><i style="background:var(--ink-2)"></i>בלי קליטה</span>
+      <span><i style="background:#c9c5ba"></i>פנוי / סיים</span>
+    </div>
+    <div class="livemap">
+      <div class="mapbox"><svg id="map" aria-label="מפת הטכנאים כעת"></svg></div>
+      <ul class="techlist" id="techlist"></ul>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="a-title">
+    <h2 id="a-title">דורש טיפול <small id="a-count"></small></h2>
+    <ul class="alerts" id="alerts"></ul>
+  </section>
+</main>
+
+<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+
+<script src="js/data.js"></script>
+<script src="js/map.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/live.js"></script>
+</body>
+</html>

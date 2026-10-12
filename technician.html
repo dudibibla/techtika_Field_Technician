@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>מסלול · אפליקציית טכנאי</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="bar-grad"></div>
+<header class="topbar"><div class="in">
+  <a class="brand" href="index.html"><i></i>מסלול <small>קור־טק</small></a>
+  <nav class="tabs" aria-label="מסכים">
+    <a href="dispatcher.html">תכנון מחר</a>
+    <a href="live.html">היום בזמן אמת</a>
+    <a href="technician.html" aria-current="page">אפליקציית טכנאי</a>
+    <a href="customer.html">הודעות ללקוח</a>
+  </nav>
+</div></header>
+
+<main class="stage">
+  <section class="notes">
+    <span class="mono">מסך 3 · יוסי, טכנאי בשטח</span>
+    <h1>"המשימה הבאה" בנייד</h1>
+    <p class="lead">אפליקציית PWA לאנדרואיד: מה הקריאה הבאה, אילו חלקים צריך, ולחיצה אחת לכל סטטוס. עובדת גם במרתף בלי קליטה.</p>
+
+    <h2>שעה ביום</h2>
+    <div class="ctrl" id="ctrl-time"></div>
+
+    <h2>מצבים להדגמה</h2>
+    <div class="ctrl">
+      <label class="toggle" for="t-off"><input type="checkbox" id="t-off"> אין קליטה (מרתף, גג)</label>
+      <label class="toggle" for="t-con"><input type="checkbox" id="t-con"> תצוגת קבלן משנה: קישור לקריאה אחת</label>
+    </div>
+
+    <h2>מה המסך פותר</h2>
+    <ul>
+      <li>חלק חסר בניידת: רשימת חלקים לכל קריאה ואישור העמסה עד 07:30 (Must 4)</li>
+      <li>שיחות מהמוקד באמצע עבודה: סטטוס בלחיצה, והלקוח מקבל "בדרך" לבד (Must 5, 7)</li>
+      <li>אפליקציה שנתקעת בלי קליטה: העדכונים נשמרים ונשלחים אחר כך (Must 5)</li>
+      <li>קוד שער בוואטסאפ: מוצג רק אחרי "הגעתי" ונמחק בסגירה (Must 10)</li>
+      <li>דוח כישלונות לא אמין: סיבה חובה לכל ביקור שנכשל (Must 6)</li>
+    </ul>
+  </section>
+
+  <div class="phone" aria-label="מסך הטלפון">
+    <div class="screen" id="screen"></div>
+  </div>
+</main>
+
+<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+
+<script src="js/data.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/technician.js"></script>
+</body>
+</html>

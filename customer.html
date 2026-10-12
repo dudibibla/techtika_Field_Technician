@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>מסלול · הודעות ללקוח</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="bar-grad"></div>
+<header class="topbar"><div class="in">
+  <a class="brand" href="index.html"><i></i>מסלול <small>קור־טק</small></a>
+  <nav class="tabs" aria-label="מסכים">
+    <a href="dispatcher.html">תכנון מחר</a>
+    <a href="live.html">היום בזמן אמת</a>
+    <a href="technician.html">אפליקציית טכנאי</a>
+    <a href="customer.html" aria-current="page">הודעות ללקוח</a>
+  </nav>
+</div></header>
+
+<main class="stage">
+  <section class="notes">
+    <span class="mono">מסך 4 · הלקוח בבית</span>
+    <h1>וואטסאפ עם זמן הגעה</h1>
+    <p class="lead">ללקוח אין מסך במערכת. הוא מקבל שלוש הודעות לכל היותר: אישור חלון בערב, "בדרך" עם שעה, ועדכון רק אם הטכנאי מתעכב ב־15 דקות או יותר.</p>
+
+    <h2>הפעילו את הרצף</h2>
+    <div class="ctrl" id="steps"></div>
+
+    <h2>מצב שגיאה</h2>
+    <div class="ctrl">
+      <label class="toggle" for="t-nowa"><input type="checkbox" id="t-nowa"> המספר של הלקוח לא רשום בוואטסאפ</label>
+      <button class="btn ghost" type="button" id="reset">התחל מחדש</button>
+    </div>
+
+    <h2>כללים</h2>
+    <ul>
+      <li>תבניות שירות (Utility) שאושרו מראש ב־Meta: $0.0053 להודעה בישראל</li>
+      <li>לקוח שענה "אני בבית" פותח חלון של 24 שעות, ואז הודעת "בדרך" למחרת לא עולה כסף</li>
+      <li>אף פעם לא נשלחים קוד כניסה או הטלפון הפרטי של הטכנאי</li>
+      <li>לקוח שלא אישר עד 08:00 מסומן למשבץ בלוח "היום"</li>
+    </ul>
+  </section>
+
+  <div class="phone" aria-label="מסך הטלפון של הלקוח">
+    <div class="screen">
+      <div class="sbar"><span id="clock">18:00</span><span>4G · 64%</span></div>
+      <div class="wa-head"><i>ק</i><div><b>קור־טק התקנות</b><small>חשבון עסקי מאומת</small></div></div>
+      <div class="wa-body" id="chat" aria-live="polite"></div>
+      <div class="wa-input"><span>הודעה</span></div>
+    </div>
+  </div>
+</main>
+
+<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+
+<script src="js/data.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/customer.js"></script>
+</body>
+</html>

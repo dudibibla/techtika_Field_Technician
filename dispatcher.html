@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>מסלול · תכנון מחר</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="bar-grad"></div>
+<header class="topbar"><div class="in">
+  <a class="brand" href="index.html"><i></i>מסלול <small>קור־טק · מוקד</small></a>
+  <nav class="tabs" aria-label="מסכים">
+    <a href="dispatcher.html" aria-current="page">תכנון מחר</a>
+    <a href="live.html">היום בזמן אמת</a>
+    <a href="technician.html">אפליקציית טכנאי</a>
+    <a href="customer.html">הודעות ללקוח</a>
+  </nav>
+  <span class="spacer"></span>
+  <label class="demo" for="demo-state">הדגמת מצב
+    <select id="demo-state">
+      <option value="normal">רגיל</option>
+      <option value="sync">שגיאת סנכרון Priority</option>
+      <option value="empty">אין קריאות למחר</option>
+    </select>
+  </label>
+  <span class="who"><b>ר</b>רינה לוי · משבצת ראשית</span>
+</div></header>
+
+<div id="banner"></div>
+
+<section class="summary" id="summary" aria-label="סיכום"></section>
+
+<main class="plan">
+  <aside class="panel" aria-labelledby="q-title">
+    <h2 id="q-title">ממתינות להחלטה <small id="q-count"></small></h2>
+    <p class="sub">קריאות שההצעה לא הצליחה לשבץ. גררו לטכנאי, או בחרו קריאה ובחרו טכנאי בצד.</p>
+    <ul class="queue" id="queue"></ul>
+  </aside>
+
+  <section class="board" aria-labelledby="b-title">
+    <div class="board-head">
+      <h1 id="b-title"></h1>
+      <span class="spacer"></span>
+      <div class="legend">
+        <span><i style="background:var(--teal-bg);border:1.5px dashed var(--teal)"></i>הצעה</span>
+        <span><i style="background:var(--teal-bg);border:1.5px solid var(--teal)"></i>מאושר</span>
+        <span><i style="background:var(--teal-bg);border:1.5px solid var(--teal);box-shadow:inset 0 -3px 0 var(--navy)"></i>שינוי ידני</span>
+        <span><i style="background:var(--pink-bg);border:1.5px solid var(--pink)"></i>חורג מהחלון</span>
+      </div>
+      <button class="btn primary" id="approve-all" type="button"></button>
+    </div>
+    <div class="lanes-wrap"><div class="lanes" id="lanes"></div></div>
+  </section>
+
+  <aside class="panel side" aria-labelledby="d-title">
+    <div>
+      <h2 id="d-title">מפה <small id="map-caption">כל הקריאות למחר</small></h2>
+      <div class="mapbox"><svg id="map" aria-label="מפת הקריאות והטכנאים"></svg></div>
+    </div>
+    <div id="detail"></div>
+  </aside>
+</main>
+
+<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+
+<script src="js/data.js"></script>
+<script src="js/map.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/dispatcher.js"></script>
+</body>
+</html>
